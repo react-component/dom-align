@@ -1,7 +1,5 @@
 import React from 'react';
-import { alignPoint } from '../src';
-import ReactDOM from 'react-dom';
-import createReactClass from 'create-react-class';
+import { alignPoint } from '@rc-component/dom-align';
 
 class Demo extends React.Component {
   state = {
@@ -9,6 +7,8 @@ class Demo extends React.Component {
     sx: 'l',
     overflowAdjust: false,
   };
+
+  $rect: HTMLElement;
 
   onChangeY = ({ target: { value } }) => {
     this.setState({ sy: value });
@@ -28,7 +28,7 @@ class Demo extends React.Component {
     const { sx, sy, overflowAdjust } = this.state;
     const { clientX, clientY } = event;
 
-    const overflow = {};
+    const overflow = {} as any;
     if (overflowAdjust) {
       overflow.adjustX = true;
       overflow.adjustY = true;
@@ -100,4 +100,4 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(<Demo />, document.getElementById('__react-content'));
+export default Demo;

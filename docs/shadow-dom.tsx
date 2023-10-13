@@ -1,9 +1,8 @@
-import React from 'react';
-import domAlign from 'dom-align';
+import React, { useEffect } from 'react';
+import domAlign from '@rc-component/dom-align';
 import ReactDOM from 'react-dom';
-import createReactClass from 'create-react-class';
 
-const Test = createReactClass({
+class Test extends React.Component {
   align() {
     const ret = domAlign(this.refs.source, this.refs.target, {
       points: ['bl', 'bl'],
@@ -12,16 +11,16 @@ const Test = createReactClass({
       },
     });
     console.log(ret);
-  },
+  }
+
   render() {
-    window.align = this.align;
     return (
-      <div style={{ height: 1000 }}>
+      <div style={{ height: 500 }}>
         <button ref="target">target</button>
 
         <div style={{ height: 100 }} />
 
-        <button onClick={this.align}>align</button>
+        <button onClick={this.align.bind(this)}>align</button>
 
         <div
           ref="source"
@@ -36,7 +35,16 @@ const Test = createReactClass({
         </div>
       </div>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, document.getElementById('__react-content'));
+export default () => {
+  const divRef = React.useRef(null);
+  useEffect(() => {
+    const div = document.createElement('div');
+    const shadowRoot = div.attachShadow({ mode: 'open' });
+    divRef.current.appendChild(div);
+    ReactDOM.render(<Test />, shadowRoot);
+  }, []);
+  return <div ref={divRef} />;
+}

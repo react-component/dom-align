@@ -31,7 +31,7 @@ describe('point', () => {
             position: 'absolute',
             width,
             height,
-          }}></div>
+          }} />
       </>,
     );
 
@@ -51,7 +51,7 @@ describe('point', () => {
         points: ['cc'],
       },
     );
-    const offset = $(source).offset();
+    const offset = $(source).offset() as any;
     expect(offset.left).to.equal(Math.ceil((winWidth - width) / 2));
     expect(offset.top).to.equal(Math.ceil((winHeight - height) / 2));
   });
@@ -68,7 +68,7 @@ describe('point', () => {
         },
       },
     );
-    const offset = $(source).offset();
+    const offset = $(source).offset() as any;
     expect(offset.left).to.equal(winWidth - 10 - width);
     expect(offset.top).to.equal(winHeight - 10 - height);
   });
@@ -81,7 +81,7 @@ describe('point', () => {
         points: ['tl'],
       },
     );
-    const offset = $(source).offset();
+    const offset = $(source).offset() as any;
     expect(offset.left).to.equal(winWidth + width);
     expect(offset.top).to.equal(winHeight + height);
   });

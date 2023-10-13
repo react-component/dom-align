@@ -6,10 +6,6 @@ import {
   getTransformName,
 } from './propertyUtils';
 
-const RE_NUM = /[-+]?(?:\d*\.|)\d+(?:[eE][-+]?\d+|)/.source;
-
-let getComputedStyleX;
-
 // https://stackoverflow.com/a/3485654/3040605
 function forceRelayout(elem) {
   const originalStyle = elem.style.display;
@@ -20,7 +16,7 @@ function forceRelayout(elem) {
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
-function css(el, name, v) {
+function css(el, name, v = undefined) {
   let value = v;
   if (typeof name === 'object') {
     for (const i in name) {
@@ -37,18 +33,17 @@ function css(el, name, v) {
     el.style[name] = value;
     return undefined;
   }
-  return getComputedStyleX(el, name);
+  return getComputedStyle(el, name);
 }
 
 function getClientPosition(elem) {
-  let box;
   let x;
   let y;
   const doc = elem.ownerDocument;
   const body = doc.body;
   const docElem = doc && doc.documentElement;
   // 根据 GBS 最新数据，A-Grade Browsers 都已支持 getBoundingClientRect 方法，不用再考虑传统的实现方式
-  box = elem.getBoundingClientRect();
+  const box = elem.getBoundingClientRect();
 
   // 注：jQuery 还考虑减去 docElem.clientLeft/clientTop
   // 但测试发现，这样反而会导致当 html 和 body 有边距/边框样式时，获取的值不正确
@@ -86,7 +81,7 @@ function getClientPosition(elem) {
   };
 }
 
-function getScroll(w, top) {
+function getScroll(w, top: boolean = false) {
   let ret = w[`page${top ? 'Y' : 'X'}Offset`];
   const method = `scroll${top ? 'Top' : 'Left'}`;
   if (typeof ret !== 'number') {
@@ -138,11 +133,10 @@ function getDocument(node) {
   return node.ownerDocument;
 }
 
-function _getComputedStyle(elem, name, cs) {
-  let computedStyle = cs;
+function getComputedStyle(elem, name) {
   let val = '';
   const d = getDocument(elem);
-  computedStyle = computedStyle || d.defaultView.getComputedStyle(elem, null);
+  const computedStyle = d.defaultView.getComputedStyle(elem, null);
 
   // https://github.com/kissyteam/kissy/issues/61
   if (computedStyle) {
@@ -150,55 +144,6 @@ function _getComputedStyle(elem, name, cs) {
   }
 
   return val;
-}
-
-const _RE_NUM_NO_PX = new RegExp(`^(${RE_NUM})(?!px)[a-z%]+$`, 'i');
-const RE_POS = /^(top|right|bottom|left)$/;
-const CURRENT_STYLE = 'currentStyle';
-const RUNTIME_STYLE = 'runtimeStyle';
-const LEFT = 'left';
-const PX = 'px';
-
-function _getComputedStyleIE(elem, name) {
-  // currentStyle maybe null
-  // http://msdn.microsoft.com/en-us/library/ms535231.aspx
-  let ret = elem[CURRENT_STYLE] && elem[CURRENT_STYLE][name];
-
-  // 当 width/height 设置为百分比时，通过 pixelLeft 方式转换的 width/height 值
-  // 一开始就处理了! CUSTOM_STYLE.height,CUSTOM_STYLE.width ,cssHook 解决@2011-08-19
-  // 在 ie 下不对，需要直接用 offset 方式
-  // borderWidth 等值也有问题，但考虑到 borderWidth 设为百分比的概率很小，这里就不考虑了
-
-  // From the awesome hack by Dean Edwards
-  // http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291
-  // If we're not dealing with a regular pixel number
-  // but a number that has a weird ending, we need to convert it to pixels
-  // exclude left right for relativity
-  if (_RE_NUM_NO_PX.test(ret) && !RE_POS.test(name)) {
-    // Remember the original values
-    const style = elem.style;
-    const left = style[LEFT];
-    const rsLeft = elem[RUNTIME_STYLE][LEFT];
-
-    // prevent flashing of content
-    elem[RUNTIME_STYLE][LEFT] = elem[CURRENT_STYLE][LEFT];
-
-    // Put in the new values to get a computed value out
-    style[LEFT] = name === 'fontSize' ? '1em' : ret || 0;
-    ret = style.pixelLeft + PX;
-
-    // Revert the changed values
-    style[LEFT] = left;
-
-    elem[RUNTIME_STYLE][LEFT] = rsLeft;
-  }
-  return ret === '' ? 'auto' : ret;
-}
-
-if (typeof window !== 'undefined') {
-  getComputedStyleX = window.getComputedStyle
-    ? _getComputedStyle
-    : _getComputedStyleIE;
 }
 
 function getOffsetDirection(dir, option) {
@@ -325,7 +270,7 @@ function setOffset(elem, offset, option) {
     option.useCssTransform &&
     getTransformName() in document.body.style
   ) {
-    setTransform(elem, offset, option);
+    setTransform(elem, offset);
   } else {
     setLeftTop(elem, offset, option);
   }
@@ -338,7 +283,7 @@ function each(arr, fn) {
 }
 
 function isBorderBoxFn(elem) {
-  return getComputedStyleX(elem, 'boxSizing') === 'border-box';
+  return getComputedStyle(elem, 'boxSizing') === 'border-box';
 }
 
 const BOX_MODELS = ['margin', 'border', 'padding'];
@@ -385,7 +330,7 @@ function getPBMWidth(elem, props, which) {
         } else {
           cssProp = prop + which[i];
         }
-        value += parseFloat(getComputedStyleX(elem, cssProp)) || 0;
+        value += parseFloat(getComputedStyle(elem, cssProp)) || 0;
       }
     }
   }
@@ -448,12 +393,12 @@ function getWH(elem, name, ex) {
   let extra = ex;
   if (isWindow(elem)) {
     return name === 'width'
-      ? domUtils.viewportWidth(elem)
-      : domUtils.viewportHeight(elem);
+      ? (domUtils as any).viewportWidth(elem)
+      : (domUtils as any).viewportHeight(elem);
   } else if (elem.nodeType === 9) {
     return name === 'width'
-      ? domUtils.docWidth(elem)
-      : domUtils.docHeight(elem);
+      ? (domUtils as any).docWidth(elem)
+      : (domUtils as any).docHeight(elem);
   }
   const which = name === 'width' ? ['Left', 'Right'] : ['Top', 'Bottom'];
   let borderBoxValue =
@@ -461,7 +406,7 @@ function getWH(elem, name, ex) {
       ? Math.floor(elem.getBoundingClientRect().width)
       : Math.floor(elem.getBoundingClientRect().height);
   const isBorderBox = isBorderBoxFn(elem);
-  let cssBoxValue = 0;
+  let cssBoxValue = 0 as any;
   if (
     borderBoxValue === null ||
     borderBoxValue === undefined ||
@@ -469,7 +414,7 @@ function getWH(elem, name, ex) {
   ) {
     borderBoxValue = undefined;
     // Fall back to computed then un computed css if necessary
-    cssBoxValue = getComputedStyleX(elem, name);
+    cssBoxValue = getComputedStyle(elem, name);
     if (
       cssBoxValue === null ||
       cssBoxValue === undefined ||
@@ -478,7 +423,7 @@ function getWH(elem, name, ex) {
       cssBoxValue = elem.style[name] || 0;
     }
     // Normalize '', auto, and prepare for extra
-    cssBoxValue = Math.floor(parseFloat(cssBoxValue)) || 0;
+    cssBoxValue = Math.floor(parseFloat(cssBoxValue.toString())) || 0;
   }
   if (extra === undefined) {
     extra = isBorderBox ? BORDER_INDEX : CONTENT_INDEX;
@@ -518,9 +463,11 @@ function getWHIgnoreDisplay(...args) {
   // in case elem is window
   // elem.offsetWidth === undefined
   if (elem.offsetWidth !== 0) {
+    // eslint-disable-next-line prefer-spread
     val = getWH.apply(undefined, args);
   } else {
     swap(elem, cssShow, () => {
+      // eslint-disable-next-line prefer-spread
       val = getWH.apply(undefined, args);
     });
   }
@@ -553,15 +500,6 @@ each(['width', 'height'], (name) => {
   };
 });
 
-function mix(to, from) {
-  for (const i in from) {
-    if (hasOwnProperty.call(from, i)) {
-      to[i] = from[i];
-    }
-  }
-  return to;
-}
-
 const utils = {
   getWindow(node) {
     if (node && node.document && node.setTimeout) {
@@ -583,7 +521,7 @@ const utils = {
   css,
   clone(obj) {
     let i;
-    const ret = {};
+    const ret = {} as any;
     for (i in obj) {
       if (hasOwnProperty.call(obj, i)) {
         ret[i] = obj[i];
@@ -599,24 +537,15 @@ const utils = {
     }
     return ret;
   },
-  mix,
   getWindowScrollLeft(w) {
     return getScrollLeft(w);
   },
   getWindowScrollTop(w) {
     return getScrollTop(w);
   },
-  merge(...args) {
-    const ret = {};
-    for (let i = 0; i < args.length; i++) {
-      utils.mix(ret, args[i]);
-    }
-    return ret;
-  },
   viewportWidth: 0,
   viewportHeight: 0,
+  ...domUtils,
 };
 
-mix(utils, domUtils);
-
-export default utils;
+export default utils as any;
