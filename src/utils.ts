@@ -175,8 +175,7 @@ function setLeftTop(elem, offset, option) {
   let presetV = -999;
   const horizontalProperty = getOffsetDirection('left', option);
   const verticalProperty = getOffsetDirection('top', option);
-  const oppositeHorizontalProperty =
-    oppositeOffsetDirection(horizontalProperty);
+  const oppositeHorizontalProperty = oppositeOffsetDirection(horizontalProperty);
   const oppositeVerticalProperty = oppositeOffsetDirection(verticalProperty);
 
   if (horizontalProperty !== 'left') {
@@ -266,10 +265,7 @@ function setOffset(elem, offset, option) {
 
   if (option.useCssRight || option.useCssBottom) {
     setLeftTop(elem, offset, option);
-  } else if (
-    option.useCssTransform &&
-    getTransformName() in document.body.style
-  ) {
+  } else if (option.useCssTransform && getTransformName() in document.body.style) {
     setTransform(elem, offset);
   } else {
     setLeftTop(elem, offset, option);
@@ -396,9 +392,7 @@ function getWH(elem, name, ex) {
       ? (domUtils as any).viewportWidth(elem)
       : (domUtils as any).viewportHeight(elem);
   } else if (elem.nodeType === 9) {
-    return name === 'width'
-      ? (domUtils as any).docWidth(elem)
-      : (domUtils as any).docHeight(elem);
+    return name === 'width' ? (domUtils as any).docWidth(elem) : (domUtils as any).docHeight(elem);
   }
   const which = name === 'width' ? ['Left', 'Right'] : ['Top', 'Bottom'];
   let borderBoxValue =
@@ -407,19 +401,11 @@ function getWH(elem, name, ex) {
       : Math.floor(elem.getBoundingClientRect().height);
   const isBorderBox = isBorderBoxFn(elem);
   let cssBoxValue = 0 as any;
-  if (
-    borderBoxValue === null ||
-    borderBoxValue === undefined ||
-    borderBoxValue <= 0
-  ) {
+  if (borderBoxValue === null || borderBoxValue === undefined || borderBoxValue <= 0) {
     borderBoxValue = undefined;
     // Fall back to computed then un computed css if necessary
     cssBoxValue = getComputedStyle(elem, name);
-    if (
-      cssBoxValue === null ||
-      cssBoxValue === undefined ||
-      Number(cssBoxValue) < 0
-    ) {
+    if (cssBoxValue === null || cssBoxValue === undefined || Number(cssBoxValue) < 0) {
       cssBoxValue = elem.style[name] || 0;
     }
     // Normalize '', auto, and prepare for extra
@@ -428,8 +414,7 @@ function getWH(elem, name, ex) {
   if (extra === undefined) {
     extra = isBorderBox ? BORDER_INDEX : CONTENT_INDEX;
   }
-  const borderBoxValueOrIsBorderBox =
-    borderBoxValue !== undefined || isBorderBox;
+  const borderBoxValueOrIsBorderBox = borderBoxValue !== undefined || isBorderBox;
   const val = borderBoxValue || cssBoxValue;
   if (extra === CONTENT_INDEX) {
     if (borderBoxValueOrIsBorderBox) {
@@ -477,10 +462,7 @@ function getWHIgnoreDisplay(...args) {
 each(['width', 'height'], (name) => {
   const first = name.charAt(0).toUpperCase() + name.slice(1);
   domUtils[`outer${first}`] = (el, includeMargin) => {
-    return (
-      el &&
-      getWHIgnoreDisplay(el, name, includeMargin ? MARGIN_INDEX : BORDER_INDEX)
-    );
+    return el && getWHIgnoreDisplay(el, name, includeMargin ? MARGIN_INDEX : BORDER_INDEX);
   };
   const which = name === 'width' ? ['Left', 'Right'] : ['Top', 'Bottom'];
 

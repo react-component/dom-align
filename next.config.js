@@ -6,6 +6,5 @@ module.exports = {
   },
   distDir: 'dom-align',
   basePath: process.env.NODE_ENV === 'production' ? '/dom-align' : '',
-  assetPrefix:
-    process.env.NODE_ENV === 'production' ? '/dom-align/' : undefined,
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/dom-align/' : undefined,
 };

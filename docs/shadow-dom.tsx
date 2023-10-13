@@ -47,4 +47,4 @@ export default () => {
     ReactDOM.render(<Test />, shadowRoot);
   }, []);
   return <div ref={divRef} />;
-}
+};

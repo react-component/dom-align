@@ -24,7 +24,7 @@ class Demo extends React.Component {
     });
   };
 
-  onClick = event => {
+  onClick = (event) => {
     const { sx, sy, overflowAdjust } = this.state;
     const { clientX, clientY } = event;
 
@@ -45,7 +45,7 @@ class Demo extends React.Component {
     );
   };
 
-  rectRef = ele => {
+  rectRef = (ele) => {
     this.$rect = ele;
   };
 
@@ -67,11 +67,7 @@ class Demo extends React.Component {
             <option value="b">r (Right)</option>
           </select>{' '}
           Overflow Adjust:
-          <input
-            type="checkbox"
-            checked={overflowAdjust}
-            onClick={this.onOverflowAdjust}
-          />
+          <input type="checkbox" checked={overflowAdjust} onClick={this.onOverflowAdjust} />
         </div>
 
         <div

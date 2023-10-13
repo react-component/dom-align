@@ -1,13 +1,10 @@
 # @rc-component/dom-align
+
 ---
 
 Align source html element with target html element flexibly.
 
-[![NPM version][npm-image]][npm-url]
-[![Test coverage][coveralls-image]][coveralls-url]
-[![npm download][download-image]][download-url]
-![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg)
-[![@rc-component/dom-align](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/22j6d7/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/22j6d7/runs)
+[![NPM version][npm-image]][npm-url] [![Test coverage][coveralls-image]][coveralls-url] [![npm download][download-image]][download-url] ![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg) [![@rc-component/dom-align](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/22j6d7/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/22j6d7/runs)
 
 [npm-image]: http://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@rc-component/dom-align
@@ -28,9 +25,9 @@ Align source html element with target html element flexibly.
 
 ## Feature
 
-* support Edge Chrome Firefox
-* support align points and offset
-* support auto adjust according to visible area
+- support Edge Chrome Firefox
+- support align points and offset
+- support auto adjust according to visible area
 
 ## Usage
 
@@ -41,9 +38,9 @@ import domAlign from '@rc-component/dom-align';
 // sourceNode's initial style should be position:absolute;left:-9999px;top:-9999px;
 
 const alignConfig = {
-  points: ['tl', 'tr'],        // align top left point of sourceNode with top right point of targetNode
-  offset: [10, 20],            // the offset sourceNode by 10px in x and 20px in y,
-  targetOffset: ['30%','40%'], // the offset targetNode by 30% of targetNode width in x and 40% of targetNode height in y,
+  points: ['tl', 'tr'], // align top left point of sourceNode with top right point of targetNode
+  offset: [10, 20], // the offset sourceNode by 10px in x and 20px in y,
+  targetOffset: ['30%', '40%'], // the offset targetNode by 30% of targetNode width in x and 40% of targetNode height in y,
   overflow: { adjustX: true, adjustY: true }, // auto adjust position when sourceNode is overflowed
 };
 

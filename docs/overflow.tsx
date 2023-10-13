@@ -17,27 +17,27 @@ const Test = () => {
       document.body.style.overflow = 'hidden';
     }, 1000);
   };
-    return (
-      <div style={{ height: 400 }}>
-        <button ref={targetRef}>target</button>
+  return (
+    <div style={{ height: 400 }}>
+      <button ref={targetRef}>target</button>
 
-        <div style={{ height: 100 }} />
+      <div style={{ height: 100 }} />
 
-        <button onClick={align}>align</button>
+      <button onClick={align}>align</button>
 
-        <div
-          ref={sourceRef}
-          style={{
-            position: 'absolute',
-            width: 100,
-            height: 200,
-            border: '1px solid red',
-          }}
-        >
-          oo
-        </div>
+      <div
+        ref={sourceRef}
+        style={{
+          position: 'absolute',
+          width: 100,
+          height: 200,
+          border: '1px solid red',
+        }}
+      >
+        oo
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default Test;
+export default Test;

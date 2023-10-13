@@ -31,9 +31,7 @@ function getOffsetParent(element) {
   const skipStatic = positionStyle === 'fixed' || positionStyle === 'absolute';
 
   if (!skipStatic) {
-    return element.nodeName.toLowerCase() === 'html'
-      ? null
-      : getParent(element);
+    return element.nodeName.toLowerCase() === 'html' ? null : getParent(element);
   }
 
   for (
