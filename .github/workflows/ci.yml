@@ -45,7 +45,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - run: cp test-coverage-babelrc .babelrc
+      - name: lint and tsc
+        run: pnpm run lint && pnpm run tsc && pnpm run compile
       - run: pnpm test:ci
         env:
           CYPRESS_RECORD_KEY: ${{vars.CYPRESS_RECORD_KEY}}
