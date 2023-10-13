@@ -2,8 +2,9 @@
   "name": "@rc-component/dom-align",
   "version": "1.12.4",
   "description": "Align DOM Node Flexibly ",
+  "packageManager": "pnpm@8.9.0",
   "engines": {
-    "node": ">=8.x"
+    "node": ">=14.x"
   },
   "keywords": [
     "react",
