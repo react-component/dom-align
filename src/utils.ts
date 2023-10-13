@@ -37,14 +37,13 @@ function css(el, name, v = undefined) {
 }
 
 function getClientPosition(elem) {
-  let box;
   let x;
   let y;
   const doc = elem.ownerDocument;
   const body = doc.body;
   const docElem = doc && doc.documentElement;
   // 根据 GBS 最新数据，A-Grade Browsers 都已支持 getBoundingClientRect 方法，不用再考虑传统的实现方式
-  box = elem.getBoundingClientRect();
+  const box = elem.getBoundingClientRect();
 
   // 注：jQuery 还考虑减去 docElem.clientLeft/clientTop
   // 但测试发现，这样反而会导致当 html 和 body 有边距/边框样式时，获取的值不正确
@@ -464,9 +463,11 @@ function getWHIgnoreDisplay(...args) {
   // in case elem is window
   // elem.offsetWidth === undefined
   if (elem.offsetWidth !== 0) {
+    // eslint-disable-next-line prefer-spread
     val = getWH.apply(undefined, args);
   } else {
     swap(elem, cssShow, () => {
+      // eslint-disable-next-line prefer-spread
       val = getWH.apply(undefined, args);
     });
   }

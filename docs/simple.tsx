@@ -6,8 +6,7 @@ function $id(id) {
 }
 
 function $val(sel) {
-  sel = $id(sel);
-  return sel.value;
+  return ($id(sel) as any).value;
 }
 
 function align() {

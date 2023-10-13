@@ -5,10 +5,7 @@ module.exports = {
   ...base,
   rules: {
     ...base.rules,
-    'default-case': 0,
-    'react/sort-comp': 0,
-    'jsx-a11y/interactive-supports-focus': 0,
-    'jsx-a11y/no-autofocus': 0,
-    'react/no-unknown-property': 0,
+    'react/no-string-refs': 0,
+    'react/no-deprecated': 0,
   },
 };

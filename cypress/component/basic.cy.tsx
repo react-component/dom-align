@@ -30,19 +30,19 @@ describe('basic', () => {
     cy.mount(
       <>
         <div>
-          <div></div>
+          <div />
         </div>
         <div>
-          <div style={{ position: 'relative' }}></div>
+          <div style={{ position: 'relative' }} />
         </div>
         <div>
           <div>
-            <div style={{ position: 'absolute' }}></div>
+            <div style={{ position: 'absolute' }} />
           </div>
         </div>
         <div style={{ position: 'relative' }}>
           <div>
-            <div style={{ position: 'absolute' }}></div>
+            <div style={{ position: 'absolute' }} />
           </div>
         </div>
       </>,
@@ -63,9 +63,9 @@ describe('basic', () => {
   it('getVisibleRectForElement clip by viewport if ancestor is fixed', () => {
     cy.mount(
       <>
-        <div style={{ height: 1500, width: 100000 }}></div>
+        <div style={{ height: 1500, width: 100000 }} />
         <div style={{ position: 'fixed', top: 0, left: 0 }}>
-          <div style={{ position: 'absolute', width: 10, height: 10 }}></div>
+          <div style={{ position: 'absolute', width: 10, height: 10 }} />
         </div>
       </>,
     );
@@ -89,19 +89,19 @@ describe('basic', () => {
 
     const jsx = (
       <>
-        <div style={{ height: 1500, width: 100000 }}></div>
+        <div style={{ height: 1500, width: 100000 }} />
 
         <div>
-          <div></div>
+          <div />
         </div>
 
         <div style={{ width: 100, height: 100, overflow: 'hidden' }}>
-          <div style={{ position: 'relative' }}></div>
+          <div style={{ position: 'relative' }} />
         </div>
 
         <div style={{ width: 100, height: 100, overflow: 'hidden' }}>
           <div>
-            <div style={{ position: 'absolute' }}></div>
+            <div style={{ position: 'absolute' }} />
           </div>
         </div>
 
@@ -113,7 +113,7 @@ describe('basic', () => {
             overflow: 'hidden',
           }}>
           <div>
-            <div style={{ position: 'absolute' }}></div>
+            <div style={{ position: 'absolute' }} />
           </div>
         </div>
       </>
@@ -231,7 +231,7 @@ describe('basic', () => {
               position: 'absolute',
               left: 0,
               top: 0,
-            }}></div>
+            }} />
           <div
             style={{
               width: 50,
@@ -239,7 +239,7 @@ describe('basic', () => {
               position: 'absolute',
               left: 0,
               top: 0,
-            }}></div>
+            }} />
         </div>
       </>,
     );
