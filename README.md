@@ -4,7 +4,7 @@
 
 Align source html element with target html element flexibly.
 
-[![NPM version][npm-image]][npm-url] [![Test coverage][coveralls-image]][coveralls-url] [![npm download][download-image]][download-url] ![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg) [![@rc-component/dom-align](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/22j6d7/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/22j6d7/runs)
+[![NPM version][npm-image]][npm-url] [![Test coverage][coveralls-image]][coveralls-url] [![npm download][download-image]][download-url] ![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg) [![@rc-component/dom-align](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/bfy1u3/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/bfy1u3/runs)
 
 [npm-image]: http://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@rc-component/dom-align
