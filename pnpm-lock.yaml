@@ -13,6 +13,9 @@ devDependencies:
   '@cypress/code-coverage':
     specifier: ^3.12.3
     version: 3.12.3(@babel/core@7.23.2)(@babel/preset-env@7.23.2)(babel-loader@9.1.3)(cypress@13.3.1)(webpack@5.88.2)
+  '@rc-component/father-plugin':
+    specifier: ^1.0.2
+    version: 1.0.2(father@4.3.5)
   '@types/node':
     specifier: ^20.8.5
     version: 20.8.5
@@ -2694,6 +2697,14 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.6.2
+    dev: true
+
+  /@rc-component/father-plugin@1.0.2(father@4.3.5):
+    resolution: {integrity: sha512-k64hY5F2tVGTaYeVeO7iYouB0CoK23aE/01mN2YnF2mSo8jN0K1X8UP6z2iLIjnaMt1VLZVv/Cok8UoHiFYrUw==}
+    peerDependencies:
+      father: ^4.0.0
+    dependencies:
+      father: 4.3.5(@types/node@20.8.5)(styled-components@6.0.9)(webpack@5.88.2)
     dev: true
 
   /@rc-component/portal@1.1.2(react-dom@18.2.0)(react@18.2.0):
