@@ -1,6 +1,6 @@
 {
   "name": "@rc-component/dom-align",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Align DOM Node Flexibly ",
   "packageManager": "pnpm@8.9.0",
   "engines": {
