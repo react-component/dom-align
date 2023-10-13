@@ -14,7 +14,6 @@ class Test extends React.Component {
   }
 
   render() {
-    window.align = this.align;
     return (
       <div style={{ height: 500 }}>
         <button ref="target">target</button>
