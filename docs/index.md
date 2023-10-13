@@ -1,7 +1,12 @@
-## Demos
+---
+title: Demos
+nav:
+  title: Demos
+  path: /demos
+---
 
-<code src="./simple.tsx">
-<code src="./shadow-dom.tsx">
-<code src="./point.tsx">
-<code src="./fail.tsx">
-<code src="./overflow.tsx">
+<code src="./simple.tsx"></code>
+<code src="./shadow-dom.tsx"></code>
+<code src="./point.tsx"></code>
+<code src="./fail.tsx"></code>
+<code src="./overflow.tsx"></code>
