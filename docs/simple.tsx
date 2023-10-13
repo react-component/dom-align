@@ -19,14 +19,14 @@ function align() {
     offset: [$val('offset1'), $val('offset2')],
     targetOffset: [$val('targetOffset1'), $val('targetOffset2')],
     overflow: {
-      adjustX: $id('adjustX').checked,
-      adjustY: $id('adjustY').checked,
+      adjustX: ($id('adjustX') as any).checked,
+      adjustY: ($id('adjustY') as any).checked,
     },
-    useCssRight: $id('useCssRight').checked,
-    useCssBottom: $id('useCssBottom').checked,
-    useCssTransform: $id('useCssTransform').checked,
+    useCssRight: ($id('useCssRight') as any).checked,
+    useCssBottom: ($id('useCssBottom') as any).checked,
+    useCssTransform: ($id('useCssTransform') as any).checked,
 
-    ignoreShake: $id('ignoreShake').checked,
+    ignoreShake: ($id('ignoreShake') as any).checked,
   });
 }
 
@@ -56,13 +56,13 @@ export default () => (
         <option value="r">r</option>
       </select>
       &nbsp; offset: [
-      <input type="offset" id="offset1" defaultValue="0" size="3" />
+      <input type="offset" id="offset1" defaultValue="0" size={3} />
       ,
-      <input type="offset" id="offset2" defaultValue="0" size="3" />
+      <input type="offset" id="offset2" defaultValue="0" size={3} />
       ] &nbsp; targetOffset: [
-      <input type="offset" id="targetOffset1" defaultValue="0" size="3" />
+      <input type="offset" id="targetOffset1" defaultValue="0" size={3} />
       ,
-      <input type="offset" id="targetOffset2" defaultValue="0" size="3" />]
+      <input type="offset" id="targetOffset2" defaultValue="0" size={3} />]
       &nbsp; overflow: &nbsp;
       <label>
         adjustX:

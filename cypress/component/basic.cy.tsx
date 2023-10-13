@@ -72,7 +72,7 @@ describe('basic', () => {
 
     ready(() => {
       const node = $(root.childNodes[1]);
-      const getVisibleRectForElement = domAlign.__getVisibleRectForElement;
+      const getVisibleRectForElement = domAlign.__getVisibleRectForElement as any;
       window.scrollTo(100, 100);
 
       const element = node.children().get(0);
@@ -85,7 +85,7 @@ describe('basic', () => {
   });
 
   it('getVisibleRectForElement clip by document if ancestor is not fixed', () => {
-    const getVisibleRectForElement = domAlign.__getVisibleRectForElement;
+    const getVisibleRectForElement = domAlign.__getVisibleRectForElement as any;
 
     const jsx = (
       <>
