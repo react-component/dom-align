@@ -12,6 +12,5 @@
       "@@/*": ["src/.umi/*"],
       "@rc-component/dom-align": ["src/index.ts"]
     }
-  },
-  "include": ["src/**/*", ".dumirc.ts"]
+  }
 }

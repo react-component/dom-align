@@ -43,3 +43,4 @@ storybook/index.js
 # dumi
 .dumi/tmp
 .dumi/tmp-production
+dom-align
