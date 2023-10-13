@@ -6,13 +6,13 @@ Align source html element with target html element flexibly.
 [![NPM version][npm-image]][npm-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![npm download][download-image]][download-url]
-![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yaml/badge.svg)
+![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg)
 [![@rc-component/dom-align](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/22j6d7/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/22j6d7/runs)
 
 [npm-image]: http://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@rc-component/dom-align
 [coveralls-image]: https://img.shields.io/coveralls/react-component/dom-align.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/react-component/dom-align?branch=master
+[coveralls-url]: https://coveralls.io/r/react-component/dom-align?branch=main
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [download-image]: https://img.shields.io/npm/dm/@rc-component/dom-align.svg?style=flat-square
