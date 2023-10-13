@@ -31,7 +31,8 @@ describe('point', () => {
             position: 'absolute',
             width,
             height,
-          }} />
+          }}
+        />
       </>,
     );
 

@@ -41,10 +41,7 @@ function getVisibleRectForElement(element, alwaysByViewport) {
         // consider area without scrollBar
         pos.left + el.clientWidth,
       );
-      visibleRect.bottom = Math.min(
-        visibleRect.bottom,
-        pos.top + el.clientHeight,
-      );
+      visibleRect.bottom = Math.min(visibleRect.bottom, pos.top + el.clientHeight);
       visibleRect.left = Math.max(visibleRect.left, pos.left);
     } else if (el === body || el === documentElement) {
       break;

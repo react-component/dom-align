@@ -61,8 +61,7 @@ export default () => (
       ] &nbsp; targetOffset: [
       <input type="offset" id="targetOffset1" defaultValue="0" size={3} />
       ,
-      <input type="offset" id="targetOffset2" defaultValue="0" size={3} />]
-      &nbsp; overflow: &nbsp;
+      <input type="offset" id="targetOffset2" defaultValue="0" size={3} />] &nbsp; overflow: &nbsp;
       <label>
         adjustX:
         <input type="checkbox" id="adjustX" />
@@ -85,11 +84,7 @@ export default () => (
       &nbsp;
       <label>
         useCssTransform:
-        <input
-          type="checkbox"
-          id="useCssTransform"
-          defaultChecked={!!window.TransitionEvent}
-        />
+        <input type="checkbox" id="useCssTransform" defaultChecked={!!window.TransitionEvent} />
       </label>
       &nbsp;
       <label>

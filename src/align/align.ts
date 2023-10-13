@@ -13,29 +13,25 @@ import getElFuturePos from '../getElFuturePos';
 
 function isFailX(elFuturePos, elRegion, visibleRect) {
   return (
-    elFuturePos.left < visibleRect.left ||
-    elFuturePos.left + elRegion.width > visibleRect.right
+    elFuturePos.left < visibleRect.left || elFuturePos.left + elRegion.width > visibleRect.right
   );
 }
 
 function isFailY(elFuturePos, elRegion, visibleRect) {
   return (
-    elFuturePos.top < visibleRect.top ||
-    elFuturePos.top + elRegion.height > visibleRect.bottom
+    elFuturePos.top < visibleRect.top || elFuturePos.top + elRegion.height > visibleRect.bottom
   );
 }
 
 function isCompleteFailX(elFuturePos, elRegion, visibleRect) {
   return (
-    elFuturePos.left > visibleRect.right ||
-    elFuturePos.left + elRegion.width < visibleRect.left
+    elFuturePos.left > visibleRect.right || elFuturePos.left + elRegion.width < visibleRect.left
   );
 }
 
 function isCompleteFailY(elFuturePos, elRegion, visibleRect) {
   return (
-    elFuturePos.top > visibleRect.bottom ||
-    elFuturePos.top + elRegion.height < visibleRect.top
+    elFuturePos.top > visibleRect.bottom || elFuturePos.top + elRegion.height < visibleRect.top
   );
 }
 
@@ -96,13 +92,7 @@ function doAlign(el, tgtRegion, align, isTgtRegionVisible) {
   normalizeOffset(offset, elRegion);
   normalizeOffset(targetOffset, tgtRegion);
   // 当前节点将要被放置的位置
-  let elFuturePos = getElFuturePos(
-    elRegion,
-    tgtRegion,
-    points,
-    offset,
-    targetOffset,
-  );
+  let elFuturePos = getElFuturePos(elRegion, tgtRegion, points, offset, targetOffset);
   // 当前节点将要所处的区域
   let newElRegion = {
     ...elRegion,
@@ -110,11 +100,7 @@ function doAlign(el, tgtRegion, align, isTgtRegionVisible) {
   };
 
   // 如果可视区域不能完全放置当前节点时允许调整
-  if (
-    visibleRect &&
-    (overflow.adjustX || overflow.adjustY) &&
-    isTgtRegionVisible
-  ) {
+  if (visibleRect && (overflow.adjustX || overflow.adjustY) && isTgtRegionVisible) {
     if (overflow.adjustX) {
       // 如果横向不能放下
       if (isFailX(elFuturePos, elRegion, visibleRect)) {
@@ -173,13 +159,7 @@ function doAlign(el, tgtRegion, align, isTgtRegionVisible) {
 
     // 如果失败，重新计算当前节点将要被放置的位置
     if (fail) {
-      elFuturePos = getElFuturePos(
-        elRegion,
-        tgtRegion,
-        points,
-        offset,
-        targetOffset,
-      );
+      elFuturePos = getElFuturePos(elRegion, tgtRegion, points, offset, targetOffset);
       Object.assign(newElRegion, elFuturePos);
     }
     const isStillFailX = isFailX(elFuturePos, elRegion, visibleRect);
@@ -214,30 +194,17 @@ function doAlign(el, tgtRegion, align, isTgtRegionVisible) {
 
     // 确实要调整，甚至可能会调整高度宽度
     if (newOverflowCfg.adjustX || newOverflowCfg.adjustY) {
-      newElRegion = adjustForViewport(
-        elFuturePos,
-        elRegion,
-        visibleRect,
-        newOverflowCfg,
-      );
+      newElRegion = adjustForViewport(elFuturePos, elRegion, visibleRect, newOverflowCfg);
     }
   }
 
   // need judge to in case set fixed with in css on height auto element
   if (newElRegion.width !== elRegion.width) {
-    utils.css(
-      source,
-      'width',
-      utils.width(source) + newElRegion.width - elRegion.width,
-    );
+    utils.css(source, 'width', utils.width(source) + newElRegion.width - elRegion.width);
   }
 
   if (newElRegion.height !== elRegion.height) {
-    utils.css(
-      source,
-      'height',
-      utils.height(source) + newElRegion.height - elRegion.height,
-    );
+    utils.css(source, 'height', utils.height(source) + newElRegion.height - elRegion.height);
   }
 
   // https://github.com/kissyteam/kissy/issues/190

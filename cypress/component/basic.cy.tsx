@@ -111,7 +111,8 @@ describe('basic', () => {
             width: 100,
             height: 100,
             overflow: 'hidden',
-          }}>
+          }}
+        >
           <div>
             <div style={{ position: 'absolute' }} />
           </div>
@@ -231,7 +232,8 @@ describe('basic', () => {
               position: 'absolute',
               left: 0,
               top: 0,
-            }} />
+            }}
+          />
           <div
             style={{
               width: 50,
@@ -239,7 +241,8 @@ describe('basic', () => {
               position: 'absolute',
               left: 0,
               top: 0,
-            }} />
+            }}
+          />
         </div>
       </>,
     );

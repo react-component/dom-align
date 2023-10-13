@@ -33,6 +33,7 @@
     "compile": "father build",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "lint": "eslint src/ docs/ --ext .tsx,.ts,.jsx,.js",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "test": "cypress run --component",
     "test:ci": "cypress run --component --record --key $CYPRESS_RECORD_KEY",
     "tsc": "tsc --noEmit",
@@ -55,7 +56,7 @@
     "next": "^13.5.4",
     "normalize.css": "^8.0.1",
     "np": "^7.5.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "5.x"

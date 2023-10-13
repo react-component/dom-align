@@ -33,8 +33,7 @@ export function getTransitionProperty(node) {
 export function getTransformXY(node) {
   const style = window.getComputedStyle(node, null);
   const transform =
-    style.getPropertyValue('transform') ||
-    style.getPropertyValue(getTransformName());
+    style.getPropertyValue('transform') || style.getPropertyValue(getTransformName());
   if (transform && transform !== 'none') {
     const matrix = transform.replace(/[^0-9\-.,]/g, '').split(',');
     return {
@@ -54,8 +53,7 @@ const matrix3d = /matrix3d\((.*)\)/;
 export function setTransformXY(node, xy) {
   const style = window.getComputedStyle(node, null);
   const transform =
-    style.getPropertyValue('transform') ||
-    style.getPropertyValue(getTransformName());
+    style.getPropertyValue('transform') || style.getPropertyValue(getTransformName());
   if (transform && transform !== 'none') {
     let arr;
     const match2d = transform.match(matrix2d);
@@ -76,9 +74,6 @@ export function setTransformXY(node, xy) {
       setTransform(node, `matrix3d(${arr.join(',')})`);
     }
   } else {
-    setTransform(
-      node,
-      `translateX(${xy.x}px) translateY(${xy.y}px) translateZ(0)`,
-    );
+    setTransform(node, `translateX(${xy.x}px) translateY(${xy.y}px) translateZ(0)`);
   }
 }
