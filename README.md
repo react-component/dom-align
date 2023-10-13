@@ -1,7 +1,7 @@
 # @rc-component/dom-align
 ---
 
-align source html element with target html element flexibly.
+Align source html element with target html element flexibly.
 
 [![NPM version][npm-image]][npm-url]
 [![Test coverage][coveralls-image]][coveralls-url]
@@ -28,13 +28,9 @@ align source html element with target html element flexibly.
 
 ## Feature
 
-* support IE9+ chrome firefox
+* support Edge Chrome Firefox
 * support align points and offset
 * support auto adjust according to visible area
-
-## Online Demo
-
-* http://yiminghe.github.io/@rc-component/dom-align/
 
 ## Usage
 
