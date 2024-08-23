@@ -23,6 +23,7 @@ jobs:
         name: Install pnpm
         with:
           version: 9.x
+          run_install: false
 
       - name: Get pnpm store directory
         shell: bash
