@@ -13,11 +13,11 @@ Align source html element with target html element flexibly.
 
 [npm-image]: http://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@rc-component/dom-align
-[travis-image]: https://img.shields.io/travis/react-component/dom-align/master?style=flat-square
+[travis-image]: https://img.shields.io/travis/react-component/dom-align/main?style=flat-square
 [travis-url]: https://travis-ci.com/react-component/dom-align
 [github-actions-image]: https://github.com/react-component/dom-align/workflows/CI/badge.svg
 [github-actions-url]: https://github.com/react-component/dom-align/actions
-[codecov-image]: https://img.shields.io/codecov/c/github/react-component/dom-align/master.svg?style=flat-square
+[codecov-image]: https://img.shields.io/codecov/c/github/react-component/dom-align/main.svg?style=flat-square
 [codecov-url]: https://app.codecov.io/gh/react-component/dom-align
 [david-url]: https://david-dm.org/react-component/dom-align
 [david-image]: https://david-dm.org/react-component/dom-align/status.svg?style=flat-square
