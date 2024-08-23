@@ -5,7 +5,7 @@ export default defineConfig({
   component: {
     setupNodeEvents(on, config) {
       require('@cypress/code-coverage/task')(on, config);
-
+      on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'));
       return config;
     },
     devServer: {

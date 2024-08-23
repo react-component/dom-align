@@ -43,12 +43,13 @@
     "@babel/runtime": "^7.23.1"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.12.3",
+    "@cypress/code-coverage": "^3.12.45",
     "@rc-component/father-plugin": "^1.0.2",
     "@types/node": "^20.8.5",
     "@types/react": "18.x",
     "@types/react-dom": "18.x",
     "@umijs/fabric": "^4.0.1",
+    "babel-plugin-istanbul": "^7.0.0",
     "cypress": "^13.3.1",
     "dumi": "^2.1.10",
     "eslint": "^8.51.0",
@@ -60,7 +61,11 @@
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "5.x"
+    "typescript": "5.x",
+    "webpack": "^5.94.0"
+  },
+  "nyc": {
+    "include": ["src/**/*.ts"]
   },
   "publishConfig": {
     "access": "public"
