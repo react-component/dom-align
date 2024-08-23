@@ -34,7 +34,7 @@
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "lint": "eslint src/ docs/ --ext .tsx,.ts,.jsx,.js",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "test": "cypress run --component",
+    "test": "cypress run --component && echo ''",
     "test:ci": "cypress run --component --record --key $CYPRESS_RECORD_KEY",
     "tsc": "tsc --noEmit",
     "now-build": "npm run build"
