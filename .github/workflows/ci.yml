@@ -43,6 +43,6 @@ jobs:
         run: pnpm install --frozen-lockfile
       - run: pnpm test:ci
         env:
-          CYPRESS_RECORD_KEY: ${{vars.CYPRESS_RECORD_KEY}}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: Coveralls
         uses: coverallsapp/github-action@v2
