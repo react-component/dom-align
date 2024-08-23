@@ -41,6 +41,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: lint and tsc
+        run: pnpm run lint && pnpm run tsc && pnpm run compile
       - run: pnpm test:ci
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
