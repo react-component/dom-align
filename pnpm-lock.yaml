@@ -9,65 +9,65 @@ importers:
   .:
     dependencies:
       '@babel/runtime':
-        specifier: ^7.23.1
+        specifier: ^7.25.4
         version: 7.25.4
     devDependencies:
       '@cypress/code-coverage':
-        specifier: 3.x
+        specifier: ~3.12.45
         version: 3.12.45(@babel/core@7.25.2)(@babel/preset-env@7.25.4(@babel/core@7.25.2))(babel-loader@9.1.3(@babel/core@7.25.2)(webpack@5.94.0))(cypress@13.13.3)(webpack@5.94.0)
       '@rc-component/father-plugin':
-        specifier: ^1.0.2
+        specifier: ^1.1.0
         version: 1.1.0(father@4.5.0(@babel/core@7.25.2)(@types/node@20.16.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(type-fest@1.4.0)(webpack@5.94.0))
       '@types/node':
-        specifier: ^20.8.5
+        specifier: ^20.16.1
         version: 20.16.1
       '@types/react':
-        specifier: 18.x
+        specifier: ~18.3.4
         version: 18.3.4
       '@types/react-dom':
-        specifier: 18.x
+        specifier: ~18.3.0
         version: 18.3.0
       '@umijs/fabric':
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.41)
       cypress:
-        specifier: ^13.3.1
+        specifier: ^13.13.3
         version: 13.13.3
       dumi:
-        specifier: ^2.1.10
+        specifier: ^2.4.7
         version: 2.4.7(@babel/core@7.25.2)(@swc/helpers@0.5.5)(@types/node@20.16.1)(@types/react@18.3.4)(eslint@8.57.0)(lightningcss@1.22.1)(prettier@2.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.4)(stylelint@15.11.0(typescript@5.5.4))(terser@5.31.6)(type-fest@1.4.0)(typescript@5.5.4)(webpack@5.94.0)
       eslint:
-        specifier: ^8.51.0
+        specifier: ^8.57.0
         version: 8.57.0
       father:
-        specifier: ^4.0.0
+        specifier: ^4.5.0
         version: 4.5.0(@babel/core@7.25.2)(@types/node@20.16.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(type-fest@1.4.0)(webpack@5.94.0)
       jsonp:
         specifier: ^0.2.1
         version: 0.2.1
       next:
-        specifier: 14.x
+        specifier: ~14.2.6
         version: 14.2.6(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
       np:
-        specifier: ^7.5.0
+        specifier: ^7.7.0
         version: 7.7.0
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
       react:
-        specifier: ^18.2.0
+        specifier: ^18.3.1
         version: 18.3.1
       react-dom:
-        specifier: ^18.2.0
+        specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       swc-plugin-coverage-instrument:
         specifier: 0.0.21
         version: 0.0.21
       typescript:
-        specifier: 5.x
+        specifier: ~5.5.4
         version: 5.5.4
 
 packages:
