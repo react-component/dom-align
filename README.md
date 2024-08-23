@@ -4,16 +4,31 @@
 
 Align source html element with target html element flexibly.
 
-[![NPM version][npm-image]][npm-url] [![Test coverage][coveralls-image]][coveralls-url] [![npm download][download-image]][download-url] ![Build Status](https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg) [![@rc-component/dom-align](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/bfy1u3&style=flat&logo=cypress)](https://cloud.cypress.io/projects/bfy1u3/runs)
+[![NPM version][npm-image]][npm-url]
+[![npm download][download-image]][download-url]
+[![build status][github-actions-image]][github-actions-url]
+[![Codecov][codecov-image]][codecov-url]
+[![bundle size][bundlephobia-image]][bundlephobia-url]
+[![dumi][dumi-image]][dumi-url]
 
 [npm-image]: http://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/@rc-component/dom-align
-[coveralls-image]: https://img.shields.io/coveralls/react-component/dom-align.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/react-component/dom-align?branch=main
-[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
-[node-url]: http://nodejs.org/download/
+[travis-image]: https://img.shields.io/travis/react-component/dom-align/master?style=flat-square
+[travis-url]: https://travis-ci.com/react-component/dom-align
+[github-actions-image]: https://github.com/react-component/dom-align/workflows/CI/badge.svg
+[github-actions-url]: https://github.com/react-component/dom-align/actions
+[codecov-image]: https://img.shields.io/codecov/c/github/react-component/dom-align/master.svg?style=flat-square
+[codecov-url]: https://app.codecov.io/gh/react-component/dom-align
+[david-url]: https://david-dm.org/react-component/dom-align
+[david-image]: https://david-dm.org/react-component/dom-align/status.svg?style=flat-square
+[david-dev-url]: https://david-dm.org/react-component/dom-align?type=dev
+[david-dev-image]: https://david-dm.org/react-component/dom-align/dev-status.svg?style=flat-square
 [download-image]: https://img.shields.io/npm/dm/@rc-component/dom-align.svg?style=flat-square
 [download-url]: https://npmjs.org/package/@rc-component/dom-align
+[bundlephobia-url]: https://bundlephobia.com/package/@rc-component/dom-align
+[bundlephobia-image]: https://badgen.net/bundlephobia/minzip/@rc-component/dom-align
+[dumi-url]: https://github.com/umijs/dumi
+[dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 
 ## Screenshot
 
