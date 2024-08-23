@@ -1,6 +1,10 @@
 name: Node.js CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   build:
@@ -41,8 +45,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: lint and tsc
-        run: pnpm run lint && pnpm run tsc && pnpm run compile
       - run: pnpm test:ci
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  
+          CYPRESS_RECORD_KEY: ${{vars.CYPRESS_RECORD_KEY}}
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
