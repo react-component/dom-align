@@ -43,8 +43,15 @@ export default () => {
   useEffect(() => {
     const div = document.createElement('div');
     const shadowRoot = div.attachShadow({ mode: 'open' });
+    const root = createRoot(shadowRoot);
+
     divRef.current.appendChild(div);
-    createRoot(shadowRoot).render(<Test />);
+    root.render(<Test />);
+
+    return () => {
+      root.unmount();
+      div.remove();
+    };
   }, []);
   return <div ref={divRef} />;
 };

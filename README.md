@@ -13,7 +13,7 @@
   </p>
 </div>
 
-<p align="center">English | [简体中文](./README.zh-CN.md)</p>
+<p align="center">English | <a href="./README.zh-CN.md">简体中文</a></p>
 
 ## Highlights
 
@@ -54,7 +54,7 @@ domAlign(sourceNode, targetNode, {
 ## Development
 
 ```bash
-npm install
+ut install
 npm start
 npm test
 npm run lint
@@ -73,8 +73,6 @@ npm run prepublishOnly
 The release flow is handled by `@rc-component/np` through the `rc-np` command when the package uses the shared release flow.
 
 ## Detailed API
-
-## API
 
 ### void domAlign(source: HTMLElement, target: HTMLElement, alignConfig: Object):Function
 
@@ -140,8 +138,8 @@ The release flow is handled by `@rc-component/np` through the `rc-np` command wh
 ## Development
 
 ```
-pnpm install
-pnpm start
+ut install
+npm start
 ```
 
 ## Example
