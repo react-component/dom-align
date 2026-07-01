@@ -54,7 +54,7 @@ domAlign(sourceNode, targetNode, {
 ## Development
 
 ```bash
-ut install
+npm install
 npm start
 npm test
 npm run lint
@@ -138,7 +138,7 @@ The release flow is handled by `@rc-component/np` through the `rc-np` command wh
 ## Development
 
 ```
-ut install
+npm install
 npm start
 ```
 
