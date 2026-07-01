@@ -19,11 +19,15 @@ class Test extends React.Component {
   render() {
     return (
       <div style={{ height: 500 }}>
-        <button ref={this.targetRef}>target</button>
+        <button type="button" ref={this.targetRef}>
+          target
+        </button>
 
         <div style={{ height: 100 }} />
 
-        <button onClick={this.align.bind(this)}>align</button>
+        <button type="button" onClick={this.align.bind(this)}>
+          align
+        </button>
 
         <div
           ref={this.sourceRef}
