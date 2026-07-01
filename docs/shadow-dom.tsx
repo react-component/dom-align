@@ -3,8 +3,11 @@ import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
 class Test extends React.Component {
+  sourceRef = React.createRef<HTMLDivElement>();
+  targetRef = React.createRef<HTMLButtonElement>();
+
   align() {
-    const ret = domAlign(this.refs.source, this.refs.target, {
+    const ret = domAlign(this.sourceRef.current!, this.targetRef.current!, {
       points: ['bl', 'bl'],
       overflow: {
         adjustY: 1,
@@ -16,14 +19,14 @@ class Test extends React.Component {
   render() {
     return (
       <div style={{ height: 500 }}>
-        <button ref="target">target</button>
+        <button ref={this.targetRef}>target</button>
 
         <div style={{ height: 100 }} />
 
         <button onClick={this.align.bind(this)}>align</button>
 
         <div
-          ref="source"
+          ref={this.sourceRef}
           style={{
             position: 'absolute',
             width: 100,
@@ -39,13 +42,13 @@ class Test extends React.Component {
 }
 
 export default () => {
-  const divRef = React.useRef(null);
+  const divRef = React.useRef<HTMLDivElement>(null);
   useEffect(() => {
     const div = document.createElement('div');
     const shadowRoot = div.attachShadow({ mode: 'open' });
     const root = createRoot(shadowRoot);
 
-    divRef.current.appendChild(div);
+    divRef.current!.appendChild(div);
     root.render(<Test />);
 
     return () => {

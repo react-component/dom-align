@@ -4,11 +4,11 @@ import React, { useRef, useEffect } from 'react';
 import domAlign from '../../src';
 
 export default function Overflow() {
-  const source = useRef();
-  const target = useRef();
-  const timer = useRef<any>();
+  const source = useRef<HTMLDivElement>(null);
+  const target = useRef<HTMLButtonElement>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const align = () => {
-    const ret = domAlign(source.current, target.current, {
+    const ret = domAlign(source.current!, target.current!, {
       points: ['tl', 'bl'],
       overflow: {
         adjustY: 1,

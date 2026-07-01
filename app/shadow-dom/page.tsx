@@ -5,10 +5,10 @@ import ReactDOM from 'react-dom/client';
 import domAlign from '../../src';
 
 function Test() {
-  const source = useRef();
-  const target = useRef();
+  const source = useRef<HTMLDivElement>(null);
+  const target = useRef<HTMLButtonElement>(null);
   function align() {
-    const ret = domAlign(source.current, target.current, {
+    const ret = domAlign(source.current!, target.current!, {
       points: ['bl', 'bl'],
       overflow: {
         adjustY: 1,
@@ -40,10 +40,10 @@ function Test() {
 }
 
 export default function ShadowDom() {
-  const source = useRef<HTMLDivElement>();
+  const source = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const shadowRoot = source.current.attachShadow({ mode: 'open' });
+    const shadowRoot = source.current!.attachShadow({ mode: 'open' });
     ReactDOM.createRoot(shadowRoot).render(<Test />);
   }, []);
 
