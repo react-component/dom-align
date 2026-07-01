@@ -1,16 +1,21 @@
 {
   "name": "@rc-component/dom-align",
   "version": "2.0.1",
-  "description": "Align DOM Node Flexibly ",
-  "packageManager": "pnpm@8.9.0",
-  "engines": {
-    "node": ">=14.x"
-  },
+  "description": "📐 DOM alignment utility for positioning one element against another.",
   "keywords": [
     "react",
     "react-component",
     "dom-align"
   ],
+  "homepage": "http://github.com/react-component/dom-align",
+  "bugs": {
+    "url": "http://github.com/react-component/dom-align/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/dom-align.git"
+  },
+  "license": "MIT",
   "main": "./lib/index",
   "module": "./es/index",
   "types": "./lib/index.d.ts",
@@ -18,34 +23,24 @@
     "es",
     "lib"
   ],
-  "homepage": "http://github.com/react-component/dom-align",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:react-component/dom-align.git"
-  },
-  "bugs": {
-    "url": "http://github.com/react-component/dom-align/issues"
-  },
-  "license": "MIT",
   "scripts": {
-    "start": "dumi dev",
     "build": "dumi build",
     "compile": "father build",
-    "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "lint": "eslint src/ docs/ --ext .tsx,.ts,.jsx,.js",
+    "prepublishOnly": "npm run compile && rc-np",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "start": "dumi dev",
     "test": "cypress run --component && echo ''",
     "test:ci": "cypress run --component --record --key $CYPRESS_RECORD_KEY",
-    "tsc": "tsc --noEmit",
-    "now-build": "npm run build"
+    "tsc": "tsc --noEmit"
   },
   "nyc": {
-    "excludeAfterRemap": true,
     "exclude": [
       "**/node_modules/**/*",
       "**/.pnpm/**/*",
       "**/cypress/**/*"
     ],
+    "excludeAfterRemap": true,
     "reporter": [
       "text",
       "lcov"
@@ -56,7 +51,8 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "~3.12.45",
-    "@rc-component/father-plugin": "^1.1.0",
+    "@rc-component/father-plugin": "^2.2.0",
+    "@rc-component/np": "^1.0.4",
     "@types/node": "^20.16.1",
     "@types/react": "~18.3.4",
     "@types/react-dom": "~18.3.0",
@@ -69,12 +65,15 @@
     "markdown-it": "^14.1.0",
     "next": "~14.2.6",
     "normalize.css": "^8.0.1",
-    "np": "^7.7.0",
     "prettier": "^2.8.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "swc-plugin-coverage-instrument": "0.0.21",
     "typescript": "~5.5.4"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=14.x"
   },
   "publishConfig": {
     "access": "public"

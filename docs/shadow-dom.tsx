@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import domAlign from '@rc-component/dom-align';
-import ReactDOM from 'react-dom';
+import React, { useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
 class Test extends React.Component {
   align() {
@@ -44,7 +44,7 @@ export default () => {
     const div = document.createElement('div');
     const shadowRoot = div.attachShadow({ mode: 'open' });
     divRef.current.appendChild(div);
-    ReactDOM.render(<Test />, shadowRoot);
+    createRoot(shadowRoot).render(<Test />);
   }, []);
   return <div ref={divRef} />;
 };
