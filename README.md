@@ -1,68 +1,78 @@
-# @rc-component/dom-align
+<div align="center">
+  <h1>@rc-component/dom-align</h1>
+  <p><sub><a href="https://ant.design"><img alt="Ant Design" height="14" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" style="vertical-align: -0.125em;" /></a> Part of the Ant Design ecosystem.</sub></p>
+  <p>📐 DOM alignment utility for positioning one element against another.</p>
 
----
+  <p>
+    <a href="https://npmjs.org/package/@rc-component/dom-align"><img alt="NPM version" src="https://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square"></a>
+    <a href="https://npmjs.org/package/@rc-component/dom-align"><img alt="npm downloads" src="https://img.shields.io/npm/dm/@rc-component/dom-align.svg?style=flat-square"></a>
+    <a href="https://github.com/react-component/dom-align/actions/workflows/test.yml"><img alt="build status" src="https://github.com/react-component/dom-align/actions/workflows/test.yml/badge.svg"></a>
+    <a href="https://app.codecov.io/gh/react-component/dom-align"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/react-component/dom-align/main.svg?style=flat-square"></a>
+    <a href="https://bundlephobia.com/package/@rc-component/dom-align"><img alt="bundle size" src="https://img.shields.io/bundlephobia/minzip/@rc-component/dom-align?style=flat-square"></a>
+    <a href="https://github.com/umijs/dumi"><img alt="dumi" src="https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square"></a>
+  </p>
+</div>
 
-Align source html element with target html element flexibly.
+<p align="center">English | <a href="./README.zh-CN.md">简体中文</a></p>
 
-[![NPM version][npm-image]][npm-url]
-[![npm download][download-image]][download-url]
-[![build status][github-actions-image]][github-actions-url]
-[![Codecov][codecov-image]][codecov-url]
-[![bundle size][bundlephobia-image]][bundlephobia-url]
-[![dumi][dumi-image]][dumi-url]
+## Highlights
 
-[npm-image]: http://img.shields.io/npm/v/@rc-component/dom-align.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@rc-component/dom-align
-[travis-image]: https://img.shields.io/travis/react-component/dom-align/main?style=flat-square
-[travis-url]: https://travis-ci.com/react-component/dom-align
-[github-actions-image]: https://github.com/react-component/dom-align/actions/workflows/ci.yml/badge.svg
-[github-actions-url]: https://github.com/react-component/dom-align/actions/workflows/ci.yml
-[codecov-image]: https://img.shields.io/codecov/c/github/react-component/dom-align/main.svg?style=flat-square
-[codecov-url]: https://app.codecov.io/gh/react-component/dom-align
-[david-url]: https://david-dm.org/react-component/dom-align
-[david-image]: https://david-dm.org/react-component/dom-align/status.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/react-component/dom-align?type=dev
-[david-dev-image]: https://david-dm.org/react-component/dom-align/dev-status.svg?style=flat-square
-[download-image]: https://img.shields.io/npm/dm/@rc-component/dom-align.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@rc-component/dom-align
-[bundlephobia-url]: https://bundlephobia.com/package/@rc-component/dom-align
-[bundlephobia-image]: https://badgen.net/bundlephobia/minzip/@rc-component/dom-align
-[dumi-url]: https://github.com/umijs/dumi
-[dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
-
-## Screenshot
-
-<img height=444 src="http://gtms02.alicdn.com/tps/i2/TB1XIp2HXXXXXajaXXXgJfr8XXX-548-888.png">
+| Area    | Support                                                            |
+| ------- | ------------------------------------------------------------------ |
+| Purpose | DOM alignment utility for positioning one element against another. |
+| Package | `@rc-component/dom-align`                                          |
+| Release | `@rc-component/np` / `rc-np`                                       |
 
 ## Install
 
-[![@rc-component/dom-align](https://nodei.co/npm/@rc-component/dom-align.png)](https://npmjs.org/package/@rc-component/dom-align)
-
-## Feature
-
-- support Edge Chrome Firefox
-- support align points and offset
-- support auto adjust according to visible area
+```bash
+npm install @rc-component/dom-align
+```
 
 ## Usage
 
-```js
+```tsx | pure
 import domAlign from '@rc-component/dom-align';
 
-// use domAlign
-// sourceNode's initial style should be position:absolute;left:-9999px;top:-9999px;
-
-const alignConfig = {
-  points: ['tl', 'tr'], // align top left point of sourceNode with top right point of targetNode
-  offset: [10, 20], // the offset sourceNode by 10px in x and 20px in y,
-  targetOffset: ['30%', '40%'], // the offset targetNode by 30% of targetNode width in x and 40% of targetNode height in y,
-  overflow: { adjustX: true, adjustY: true }, // auto adjust position when sourceNode is overflowed
-};
-
-domAlign(sourceNode, targetNode, alignConfig);
+domAlign(sourceNode, targetNode, {
+  points: ['tl', 'tr'],
+  offset: [10, 20],
+  overflow: { adjustX: true, adjustY: true },
+});
 ```
 
 ## API
+
+| Option | Description |
+| --- | --- |
+| `points` | Source and target alignment points. |
+| `offset` | Source node offset. |
+| `targetOffset` | Target node offset. |
+| `overflow` | Auto-adjust behavior when the source overflows viewport. |
+| `useCssRight` / `useCssBottom` / `useCssTransform` | Choose CSS positioning strategy. |
+
+## Development
+
+```bash
+npm install
+npm start
+npm test
+npm run lint
+npm run tsc
+npm run compile
+```
+
+The dumi site runs at `http://localhost:8000`.
+
+## Release
+
+```bash
+npm run prepublishOnly
+```
+
+The release flow is handled by `@rc-component/np` through the `rc-np` command when the package uses the shared release flow.
+
+## Detailed API
 
 ### void domAlign(source: HTMLElement, target: HTMLElement, alignConfig: Object):Function
 
@@ -125,17 +135,10 @@ domAlign(sourceNode, targetNode, alignConfig);
     </tbody>
 </table>
 
-## Development
-
-```
-pnpm install
-pnpm start
-```
-
 ## Example
 
 http://localhost:8000/
 
 ## License
 
-@rc-component/dom-align is released under the MIT license.
+@rc-component/dom-align is released under the [MIT](./LICENSE.md) license.

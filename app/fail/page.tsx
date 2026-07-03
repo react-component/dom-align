@@ -4,11 +4,11 @@ import React, { useRef, useEffect } from 'react';
 import domAlign from '../../src';
 
 export default function Fail() {
-  const source = useRef();
-  const target = useRef();
+  const source = useRef<HTMLDivElement>(null);
+  const target = useRef<HTMLButtonElement>(null);
 
   function align() {
-    const ret = domAlign(source.current, target.current, {
+    const ret = domAlign(source.current!, target.current!, {
       points: ['bl', 'bl'],
       overflow: {
         adjustY: 1,
