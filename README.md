@@ -135,13 +135,6 @@ The release flow is handled by `@rc-component/np` through the `rc-np` command wh
     </tbody>
 </table>
 
-## Development
-
-```
-npm install
-npm start
-```
-
 ## Example
 
 http://localhost:8000/
